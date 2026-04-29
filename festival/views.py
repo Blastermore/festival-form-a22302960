@@ -51,13 +51,17 @@ def editar_concerto_view(request, concerto_id):
 def apagar_concerto_view(request, concerto_id):
     concerto = get_object_or_404(Concerto, id=concerto_id)
 
-    if request == POST:
+    if request.method == 'POST':
         concerto.delete()
 
     return redirect('index')
 
 def criar_concerto_view(request):
-    form = ConcertoForm()      
+    form = ConcertoForm(request.POST or None)      
+
+    if request.method == "POST":
+        form.save()
+        return redirect('dias')
 
     context = {'form': form}
     return render(request, 'festival/criar_concerto.html', context)
