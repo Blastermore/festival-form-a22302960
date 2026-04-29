@@ -47,3 +47,10 @@ def editar_concerto_view(request, concerto_id):
     }
 
     return render(request, 'festival/editar_concerto.html', context)
+
+def apagar_concerto_view(request, concerto_id):
+    concerto = get_object_or_404(Concerto, id=concerto_id)
+
+    concerto.delete()
+
+    return redirect('concertos')
