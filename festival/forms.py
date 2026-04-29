@@ -12,4 +12,4 @@ class ConcertoForm(forms.ModelForm):
 class PalcoForm(forms.ModelForm):
     class Meta:
         model = Palco
-        fields = ["nome", "capacidade", "imagem"]
+        fields = ["nome", "capacidade", "imagem", "acessibilidade_mobilidade_reduzida"]

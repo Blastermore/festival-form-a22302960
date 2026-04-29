@@ -10,7 +10,8 @@ class Palco(models.Model):
     nome = models.CharField(max_length=100)
     capacidade = models.PositiveIntegerField(default=0)
     imagem = models.ImageField(upload_to="palcos/", null=True, blank=True)
-
+    acessibilidade_mobilidade_reduzida = models.BooleanField(null=True, blank=True)
+    
     def __str__(self):
         return self.nome
 
